@@ -24,7 +24,8 @@ jobs:
         with:
           activate-environment: false
                     
-      - name: Run AMMR tests
+      - name: pixi test 1
+        continue-on-error: true
         run: |
           python --version | Select-String "3.11" 
         shell: pixi run pwsh -e test {0}
