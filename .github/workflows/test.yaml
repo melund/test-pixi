@@ -1,0 +1,31 @@
+name: Tests
+
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+  workflow_dispatch:
+
+concurrency: 
+  group: test
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: windows-latest
+    
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          activate-environment: false
+                    
+      - name: Run AMMR tests
+        run: |
+          python --version | Select-String "3.11" 
+        shell: pixi run pwsh -e test {0}
+            

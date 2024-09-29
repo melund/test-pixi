@@ -1,0 +1,14 @@
+[project]
+name = "test"
+authors = ["Morten Enemark Lund <melund@gmail.com>"]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+
+[dependencies]
+
+[feature.test.dependencies]
+python = "*"
+
+[environments]
+test = ["test"]
